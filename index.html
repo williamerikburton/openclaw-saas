@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OpenClaw - Launch Your Offers in 37 Minutes</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        :root {
+            --primary: #2563eb;
+            --primary-dark: #1d4ed8;
+            --primary-light: #dbeafe;
+            --text: #1e293b;
+            --text-secondary: #64748b;
+            --text-muted: #94a3b8;
+            --bg: #ffffff;
+            --bg-secondary: #f8fafc;
+            --border: #e2e8f0;
+            --success: #10b981;
+        }
+        
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background: var(--bg);
+        }
+        
+        /* NAVBAR */
+        .navbar {
+            background: var(--bg);
+            border-bottom: 1px solid var(--border);
+            padding: 16px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 32px;
+            align-items: center;
+        }
+        
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--text);
+        }
+        
+        .nav-cta {
+            background: var(--primary);
+            color: #fff !important;
+            padding: 10px 24px;
+            border-radius: 6px;
+            font-weight: 600 !important;
+        }
+        
+        .nav-cta:hover {
+            background: var(--primary-dark);
+        }
+        
+        /* HERO */
+        .hero {
+            background: linear-gradient(180deg, var(--bg) 0%, var(--bg-secondary) 100%);
+            padding: 100px 24px 80px;
+            text-align: center;
+        }
+        
+        .hero-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 8px 16px;
+            border-radius: 100px;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 32px;
+        }
+        
+        .hero h1 {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 800;
+            line-height: 1.1;
+            color: var(--text);
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+        }
+        
+        .hero-subtitle {
+            font-size: clamp(18px, 2.5vw, 22px);
+            color: var(--text-secondary);
+            line-height: 1.6;
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 16px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 48px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 16px 32px;
+            font-size: 16px;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.2s;
+            cursor: pointer;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: #fff;
+            box-shadow: 0 4px 14px rgba(37, 99, 235, 0.3);
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(37, 99, 235, 0.4);
+        }
+        
+        .btn-secondary {
+            background: #fff;
+            color: var(--text);
+            border: 2px solid var(--border);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--text-secondary);
+            background: var(--bg-secondary);
+        }
+        
+        .hero-features {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .hero-feature {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            color: var(--text-secondary);
+        }
+        
+        .hero-feature::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+        }
+        
+        /* VIDEO SECTION */
+        .video-section {
+            padding: 0 24px 80px;
+            background: var(--bg-secondary);
+        }
+        
+        .video-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: var(--bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+        }
+        
+        .video-placeholder {
+            aspect-ratio: 16/9;
+            background: linear-gradient(135deg, #1e293b 0%, #334155 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-size: 18px;
+        }
+        
+        /* FEATURES */
+        .features {
+            padding: 100px 24px;
+            background: var(--bg);
+        }
+        
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 64px;
+        }
+        
+        .section-label {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--primary);
+            margin-bottom: 16px;
+        }
+        
+        h2 {
+            font-size: clamp(28px, 4vw, 40px);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: var(--text);
+        }
+        
+        .section-subtitle {
+            font-size: 18px;
+            color: var(--text-secondary);
+        }
+        
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+        
+        .feature-card {
+            padding: 40px;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            transition: all 0.2s;
+        }
+        
+        .feature-card:hover {
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+            transform: translateY(-4px);
+        }
+        
+        .feature-icon {
+            width: 56px;
+            height: 56px;
+            background: var(--primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 24px;
+            font-size: 28px;
+        }
+        
+        .feature-card h3 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: var(--text);
+        }
+        
+        .feature-card p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* HOW IT WORKS */
+        .how-it-works {
+            padding: 100px 24px;
+            background: var(--bg-secondary);
+        }
+        
+        .steps {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            gap: 24px;
+        }
+        
+        .step {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 32px;
+            align-items: start;
+            background: var(--bg);
+            padding: 32px;
+            border-radius: 16px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .step-number {
+            width: 64px;
+            height: 64px;
+            background: var(--primary);
+            color: #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 800;
+        }
+        
+        .step-content h4 {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--text);
+        }
+        
+        .step-content p {
+            font-size: 16px;
+            color: var(--text-secondary);
+            line-height: 1.6;
+        }
+        
+        /* TESTIMONIALS */
+        .testimonials {
+            padding: 100px 24px;
+            background: var(--bg);
+        }
+        
+        .testimonial-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 32px;
+        }
+        
+        .testimonial-card {
+            padding: 40px;
+            background: var(--bg-secondary);
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+        
+        .testimonial-stars {
+            color: #fbbf24;
+            font-size: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-text {
+            font-size: 18px;
+            color: var(--text);
+            line-height: 1.7;
+            margin-bottom: 24px;
+            font-style: italic;
+        }
+        
+        .testimonial-author {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .testimonial-avatar {
+            width: 48px;
+            height: 48px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #fff;
+            font-weight: 700;
+            font-size: 18px;
+        }
+        
+        .testimonial-info h5 {
+            font-size: 16px;
+            font-weight: 700;
+            color: var(--text);
+        }
+        
+        .testimonial-info p {
+            font-size: 14px;
+            color: var(--text-muted);
+        }
+        
+        /* PRICING */
+        .pricing {
+            padding: 100px 24px;
+            background: var(--bg-secondary);
+        }
+        
+        .pricing-grid {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 32px;
+        }
+        
+        .pricing-card {
+            background: var(--bg);
+            border-radius: 20px;
+            padding: 48px;
+            border: 2px solid var(--border);
+            position: relative;
+        }
+        
+        .pricing-card.featured {
+            border-color: var(--primary);
+            box-shadow: 0 25px 50px -12px rgba(37, 99, 235, 0.15);
+        }
+        
+        .pricing-badge {
+            position: absolute;
+            top: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: #fff;
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+        
+        .pricing-name {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+        
+        .pricing-price {
+            font-size: 56px;
+            font-weight: 800;
+            color: var(--text);
+            line-height: 1;
+            margin-bottom: 8px;
+        }
+        
+        .pricing-price span {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--text-muted);
+        }
+        
+        .pricing-description {
+            font-size: 16px;
+            color: var(--text-secondary);
+            margin-bottom: 32px;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            margin-bottom: 32px;
+        }
+        
+        .pricing-features li {
+            padding: 12px 0;
+            font-size: 15px;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            border-bottom: 1px solid var(--border);
+        }
+        
+        .pricing-features li::before {
+            content: '✓';
+            color: var(--success);
+            font-weight: 700;
+        }
+        
+        .btn-block {
+            width: 100%;
+            justify-content: center;
+        }
+        
+        /* CTA SECTION */
+        .cta-section {
+            padding: 100px 24px;
+            background: var(--primary);
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: #fff;
+            margin-bottom: 16px;
+        }
+        
+        .cta-section p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 18px;
+            margin-bottom: 32px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn-white {
+            background: #fff;
+            color: var(--primary);
+        }
+        
+        .btn-white:hover {
+            background: var(--bg-secondary);
+        }
+        
+        /* FOOTER */
+        .footer {
+            padding: 60px 24px;
+            background: var(--text);
+            color: rgba(255, 255, 255, 0.6);
+            text-align: center;
+        }
+        
+        .footer p {
+            font-size: 14px;
+        }
+        
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero {
+                padding: 60px 20px;
+            }
+            
+            .hero-buttons {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .btn {
+                justify-content: center;
+            }
+            
+            .step {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .step-number {
+                margin: 0 auto;
+            }
+            
+            .pricing-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">OpenClaw</a>
+            <div class="nav-links">
+                <a href="#features">Features</a>
+                <a href="#how-it-works">How It Works</a>
+                <a href="#pricing">Pricing</a>
+                <a href="#pricing" class="nav-cta">Get Started</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-badge">⚡ Now accepting founding members</div>
+            <h1>Launch Your Offers in 37 Minutes—Not 37 Days</h1>
+            <p class="hero-subtitle">The AI-powered operating system that turns your ideas into live, revenue-generating assets. No coding. No design. No waiting.</p>
+            <div class="hero-buttons">
+                <a href="#pricing" class="btn btn-primary">Start Your Setup →</a>
+                <a href="#how-it-works" class="btn btn-secondary">See How It Works</a>
+            </div>
+            <div class="hero-features">
+                <div class="hero-feature">7-day money-back guarantee</div>
+                <div class="hero-feature">No long-term contract</div>
+                <div class="hero-feature">Setup in 48 hours</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- VIDEO -->
+    <section class="video-section">
+        <div class="video-container">
+            <div class="video-placeholder">
+                [Video: Watch the 37-minute launch process]
+            </div>
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <section class="features" id="features">
+        <div class="section-header">
+            <p class="section-label">Features</p>
+            <h2>Everything You Need to Launch Fast</h2>
+            <p class="section-subtitle">OpenClaw handles the entire process—from idea to live offer—so you can focus on strategy, not execution.</p>
+        </div>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🤖</div>
+                <h3>AI-Powered Research</h3>
+                <p>Automatically analyzes your market, identifies winning angles, and validates demand before you write a word.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">✍️</div>
+                <h3>Conversion Copy</h3>
+                <p>Sales pages, email sequences, and ad creative written in your voice and optimized for results.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🎨</div>
+                <h3>Instant Design</h3>
+                <p>Beautiful, responsive landing pages built automatically—no design skills or templates needed.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💳</div>
+                <h3>Payment Integration</h3>
+                <p>Connect Stripe, PayPal, or any processor in minutes. Your money flows directly to your accounts.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">⚡</div>
+                <h3>Automation</h3>
+                <p>Email sequences, follow-ups, and customer journeys that run on autopilot.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Traffic Ready</h3>
+                <p>Built-in tracking, analytics, and traffic systems to get your first customers fast.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="how-it-works" id="how-it-works">
+        <div class="section-header">
+            <p class="section-label">The Process</p>
+            <h2>From Idea to Live in 37 Minutes</h2>
+            <p class="section-subtitle">Here's exactly what happens when you launch with OpenClaw.</p>
+        </div>
+        <div class="steps">
+            <div class="step">
+                <div class="step-number">1</div>
+                <div class="step-content">
+                    <h4>Describe Your Offer</h4>
+                    <p>Tell OpenClaw what you're selling, who it's for, and your price. The AI handles the rest.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">2</div>
+                <div class="step-content">
+                    <h4>Review & Approve</h4>
+                    <p>Check the generated copy, design, and automation. Make any tweaks—or launch as-is.</p>
+                </div>
+            </div>
+            <div class="step">
+                <div class="step-number">3</div>
+                <div class="step-content">
+                    <h4>Go Live</h4>
+                    <p>One click deploys everything. Your offer is live, payments are connected, and traffic can start flowing.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <div class="section-header">
+            <p class="section-label">Testimonials</p>
+            <h2>Loved by Entrepreneurs</h2>
+            <p class="section-subtitle">See what early users are saying about OpenClaw.</p>
+        </div>
+        <div class="testimonial-grid">
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"I launched my first digital product in under an hour. Something that would have taken me weeks before. The copy was better than what I could have written myself."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">SM</div>
+                    <div class="testimonial-info">
+                        <h5>Sarah Mitchell</h5>
+                        <p>Course Creator</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"We used to spend $5K and 3 weeks launching a new offer. With OpenClaw, we launched 4 offers last month for a fraction of the cost and time."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">JD</div>
+                    <div class="testimonial-info">
+                        <h5>James Davidson</h5>
+                        <p>Agency Owner</p>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-stars">★★★★★</div>
+                <p class="testimonial-text">"The Platinum service is incredible. I describe what I want, they build it, I approve it. I've launched more in 2 months than the previous 2 years."</p>
+                <div class="testimonial-author">
+                    <div class="testimonial-avatar">MK</div>
+                    <div class="testimonial-info">
+                        <h5>Michael Kim</h5>
+                        <p>SaaS Founder</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRICING -->
+    <section class="pricing" id="pricing">
+        <div class="section-header">
+            <p class="section-label">Pricing</p>
+            <h2>Simple, Transparent Pricing</h2>
+            <p class="section-subtitle">Choose the plan that fits your business. Both include our 7-day guarantee.</p>
+        </div>
+        <div class="pricing-grid">
+            <div class="pricing-card">
+                <p class="pricing-name">Self-Setup</p>
+                <div class="pricing-price">$199<span>/month</span></div>
+                <p class="pricing-description">Perfect for hands-on entrepreneurs</p>
+                <ul class="pricing-features">
+                    <li>Complete OpenClaw installation</li>
+                    <li>Your own AI agent instance</li>
+                    <li>5 custom skills included</li>
+                    <li>Full tool integrations</li>
+                    <li>2-hour training session</li>
+                    <li>Monthly strategy call</li>
+                </ul>
+                <button class="btn btn-secondary btn-block">Get Started</button>
+            </div>
+            <div class="pricing-card featured">
+                <div class="pricing-badge">Most Popular</div>
+                <p class="pricing-name">Platinum Service</p>
+                <div class="pricing-price">$2,499</div>
+                <p class="pricing-description">We become your AI operations team</p>
+                <ul class="pricing-features">
+                    <li>Everything in Self-Setup</li>
+                    <li>Fully managed by our team</li>
+                    <li>Unlimited skill builds</li>
+                    <li>Weekly offer launches</li>
+                    <li>Same-day priority support</li>
+                    <li>Quarterly strategy sessions</li>
+                </ul>
+                <button class="btn btn-primary btn-block">Claim Your Spot</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="cta-section">
+        <h2>Ready to Launch Faster?</h2>
+        <p>Join 20+ entrepreneurs who are already using OpenClaw to turn ideas into revenue-generating assets in minutes, not weeks.</p>
+        <a href="#pricing" class="btn btn-white">Get Started Today →</a>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2026 Inbox Optin. All rights reserved. 7-day money-back guarantee on all plans.</p>
+    </footer>
+</body>
+</html>
